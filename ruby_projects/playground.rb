@@ -1,18 +1,22 @@
-users = [
-    { username: "mashrur", password: "password1"},
-    { username: "jack", password: "password2"},
-    { username: "arya", password: "password3"},
-    { username: "jonshow", password: "password4"},
-    { username: "heisenberg", password: "password5"},
-    
-]
+names = ["Isaiah", 'Alexis', 'Emily']
 
-puts "Welcome to the authenticator"
-25.times { print "-"}
-puts
-puts "This program will take input from the user and compare password"
-puts "If password is correct, you will get back the user object"
+# names.each do |name|
+#     # name is a reference to each element of the array 
+#     puts "My name is #{name}."
+#  end
+# 
 
+require 'bcrypt'
+ 
+my_password = BCrypt::Password.create("my password")
+  #=> "$2a$10$vI8aWBnW3fID.ZQ4/zo1G.q1lRps.9cGLcZEiGDMVr5yUP1KUOYTa"
+ 
+my_password.version              #=> "2a"
+my_password.cost                 #=> 10
+my_password == "my password"     #=> true
+my_password == "not my password" #=> false
+ 
+# my_password = BCrypt::Password.new("$2a$10$vI8aWBnW3fID.ZQ4/zo1G.q1lRps.9cGLcZEiGDMVr5yUP1KUOYTa")
+# my_password == "my password"     #=> true
+# my_password == "not my password" #=> false
 
-# We will learn
-# Hash, Array, Branching, While loops and designing program execution flow
